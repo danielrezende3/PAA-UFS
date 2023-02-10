@@ -46,7 +46,7 @@ void mergesort(int *A, int size) {
 }
 
 int main() {
-  int Arr[] = {2,3,4,2,3,4};
+  int Arr[] = {39, 0, 6, 43, 189};
   int size = sizeof(Arr) / sizeof(Arr[0]);
   mergesort(Arr, size);
 }
