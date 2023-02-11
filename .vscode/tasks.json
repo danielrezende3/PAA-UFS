@@ -6,8 +6,8 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
-                "-Wall",
                 "-g",
+                "-Wall",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
