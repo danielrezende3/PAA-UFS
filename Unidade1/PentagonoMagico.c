@@ -17,8 +17,8 @@ int main() {
   int n;
   int size_sol = 0;
   scanf("%d", &n);
-  Pair ponto[n];
-  Pair solucao[n * 3];
+  Pair *ponto = (Pair *)malloc(n * sizeof(Pair));
+  Pair *solucao = (Pair *)malloc(n * 2 * sizeof(Pair));
   for (int i = 0; i < n; i++) {
     scanf("%d %d", &ponto[i].x, &ponto[i].y);
   }
@@ -52,12 +52,22 @@ int main() {
       }
     }
   }
-
-  if ((size_sol / 2) == 5) {
+  int is_distinct = 1;
+  for (int i = 0; i < size_sol; i += 2) {
+    for (int j = i + 1; j < size_sol; j++) {
+      if (ponto[i].x == ponto[j].x && ponto[i].y == ponto[j].y) {
+        is_distinct = 0;
+        break;
+      }
+      if (!is_distinct) {
+        break;
+      }
+    }
+  }
+  if (((size_sol + 2 - 1) / 2) == 5) {
     printf("pentagono magico!");
   } else {
     printf("cade a magia?");
   }
-
   return 0;
 }
